@@ -16,7 +16,7 @@ export async function login(formData: FormData) {
   }
 
   const { error } = await supabase.auth.signInWithPassword(data)
-  console.log("kill: ",error)
+ 
   if (error) {
     redirect('/error')
   }
@@ -34,9 +34,9 @@ export async function signup(formData: FormData) {
     email: formData.get('email') as string,
     password: formData.get('password') as string,
   }
-console.log("Got the Data",data)
+
   const { error } = await supabase.auth.signUp(data)
-console.log("step 1", error)
+
   if (error) {
     redirect('/error')
   }
